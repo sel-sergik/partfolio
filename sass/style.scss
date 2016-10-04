@@ -6,7 +6,7 @@ $white: #ffffff;
 html, body {
 	height: 100%;
 	margin: 0;
-	font-family: Montserrat;
+	font-family: "Montserrat";
 }
 
 header {
@@ -14,6 +14,17 @@ header {
 		height: 600px;
 		position: relative;
 		overflow: hidden;
+
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			background-color: rgba(32,77,79, 0.75);
+			background-image: linear-gradient(to bottom, #234847 0%, transparent 20%);
+		}
 
 		.hero-image {
 			width: 100%;
@@ -38,27 +49,29 @@ header {
 
 					.logo {
 						align-self: center;
-						font-family: Proxima Nova;
+						font-family: "Proxima Nova Bold";
 						color: $white;
 						padding-right: 30px;
-						border-right: 1px solid rgba(97,118,118, 0.2);
-						font-size: 37px;
+						border-right: 2px solid rgba(124, 138, 138, 0.6);
+						font-size: 26px;
 						font-weight: 700;
-						line-height: 1;
+						line-height: 0.8;
 					}
 					.telephone {
 						align-self: center;
 						padding-left: 30px;
 						color: $white;
-						font-size: 17px;
+						font-size: 12px;
 						font-weight: 500;
 
 						.icon {
+							width: 12px;
+							height: 12px;
 							img {
-								width: 19px;
-								height: 19px;
-						    display: inline-block;
-    						vertical-align: sub;
+								width: inherit;
+								height: inherit;
+								display: inline-block;
+								vertical-align: middle;
 							}
 						}
 					}
@@ -67,9 +80,9 @@ header {
 					margin-left: auto;
 					display: flex;
 					flex-flow: row wrap;
-					font-size: 16px;
+					font-size: 12px;
 					color: $white;
-					font-weight: 700;
+					font-weight: 300;
 
 					ul {
 						list-style: none;
@@ -81,19 +94,26 @@ header {
 							display: inline-block;
 							align-self: center;
 							padding: 0 15px;
+							&.active {
+								font-weight: 700;
+							}
 						}
 					}
 					button.get-started {
-						padding: 10px;
-						background-color: rgba(125,142,142,0.5);
+						padding: 7px 10px;
+						background-color: rgba(125,142,142,0.9);
 						border-radius: 3px;
 						text-transform: uppercase;
-						height: 36px;
+						height: 30px;
 						margin: auto;
 						border: 0;
 						color: $white;
+						font-size: 12px;
 						font-weight: 700;
 						margin-left: 15px;
+						&:hover {
+							cursor: pointer;
+						}
 					}
 				}
 			}
@@ -108,19 +128,23 @@ header {
 					text-align: center;
 
 					.title {
-						font-family: Roboto;
-						font-size: 50pt;
+						font-family: "Roboto Light";
+						font-size: 46px;
 					}
 
 					.hero-button {
-						padding: 15px;
+						padding: 15px 25px;
 						background-color: rgb(111,176,72);
 						text-transform: uppercase;
 						border-radius: 3px;
 						border: 0;
 						color: $white;
 						font-weight: 500;
-				    margin-top: 20px;
+						font-size: 14px;
+						margin-top: 30px;
+						&:hover {
+							cursor: pointer;
+						}
 					}
 				}
 			}
@@ -131,23 +155,24 @@ header {
 	.about-us {
 		padding: 70px 70px 100px 70px;
 		text-align: center;
-		font-family: Roboto;
+		font-family: "Roboto";
 		.first-row {
 			padding: 0 180px;
 			display: flex;
 			flex-direction: column;
 			.title {
-				font-size: 32pt;
+				font-family: "Roboto Light";
+				font-size: 36px;
 				color: rgb(15,95,92);
 			}
 			.bottom-line {
-				width: 60px;
+				width: 70px;
 				border-bottom: 1px solid rgb(111,176,72);
 				margin: auto;
 				margin-top: 15px; 
 			}
 			.description {
-				font-size: 15pt;
+				font-size: 17px;
 				color: rgb(131,167,165);
 				margin-top: 40px;
 			}
@@ -164,12 +189,12 @@ header {
 				}
 				.title {
 					color: rgb(15,95,92);
-					font-size: 16pt;
+					font-size: 20px;
 					padding-top: 20px;
 				}
 				.description {
 					color: rgb(141,174,172);
-					font-size: 14pt;
+					font-size: 17px;
 					padding-top: 20px;
 				}
 			}
@@ -178,24 +203,25 @@ header {
 	.our-team {
 		padding: 70px 100px 100px 100px;
 		text-align: center;
-		font-family: Roboto;
+		font-family: "Roboto";
 		background-color: rgb(238,241,236);
 		.first-row {
 			padding: 0 180px;
 			display: flex;
 			flex-direction: column;
 			.title {
-				font-size: 32pt;
+				font-family: "Roboto Light";
+				font-size: 36px;
 				color: rgb(15,95,92);
 			}
 			.bottom-line {
-				width: 60px;
+				width: 70px;
 				border-bottom: 1px solid rgb(111,176,72);
 				margin: auto;
 				margin-top: 15px; 
 			}
 			.description {
-				font-size: 15pt;
+				font-size: 17px;
 				color: rgb(131,167,165);
 				margin-top: 40px;
 			}
@@ -209,31 +235,33 @@ header {
 			.item {
 				width: 30%;
 				.avatar {
+					font-size: 0px;
 					img {
 						width: 100%;
 					}
 				}
 				.name {
 					color: rgb(15,95,92);
-					font-size: 15pt;
-					padding-top: 5px;
+					font-family: "Roboto Medium";
+					font-size: 16px;
+					padding-top: 10px;
 				}
 				.position {
 					color: rgb(141,174,172);
-					font-size: 14pt;
-					padding-top: 5px;
+					font-size: 15px;
+					padding-top: 3px;
 				}
 			}
 		}
 	}
 	.wapik-action {
+		font-family: "Roboto";
 		height: 200px;
 		color: $white;
 		overflow: hidden;
 		position: relative;
 		img {
 			height: 100%;
-
 		}
 		.wapik-content {
 			position: absolute;
@@ -244,25 +272,31 @@ header {
 			flex-flow: row wrap;
 			display: flex;
 			.description {
-		    align-self: center;
+				align-self: center;
 				.title {
-					font-size: 28pt;
+					font-family: "Roboto Light";
+					font-size: 26px;
 				}
 				.sub-title {
-					font-size: 15pt;
+					font-size: 15px;
+			    padding-top: 3px;
 				}
 			}
 			.wapik-download {
-		    align-self: center;
+				align-self: center;
 				margin-left: auto;
-				padding: 15px 20px;
+				padding: 10px 20px;
 				text-transform: uppercase;
 				background-color: rgb(73,115,47);
-				font-size: 13pt;
-				height: 50px;
+				font-family: "Montserrat";
+				font-size: 14px;
+				height: 40px;
 				color: $white;
 				border: 0;
 				border-radius: 3px;
+				&:hover {
+					cursor: pointer;
+				}
 			}
 		}
 	}
