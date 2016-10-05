@@ -2,12 +2,20 @@
 
 //colors and fonts
 $white: #ffffff;
+$nav-button-color: rgb(196,203,203);
 $montserrat: "Montserrat";
 $proxima-nova-bold: "Proxima Nova Bold";
 $roboto: "Roboto";
 $roboto-light: "Roboto Light";
 $roboto-medium: "Roboto Medium";
 
+@mixin flex-box() {
+  display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+}
 
 html, body {
 	height: 100%;
@@ -19,9 +27,11 @@ html, body {
 @media only screen {
 	header {
 		.hero-container {
-			height: auto;
+			height: 600px;
 			position: relative;
 			overflow: hidden;
+			background-image: url(../images/hero.jpg);	
+			background-size: auto;
 
 			&:before {
 				content: '';
@@ -34,33 +44,30 @@ html, body {
 				background-image: linear-gradient(to bottom, #234847 0%, transparent 20%);
 			}
 
-			.hero-image {
-				width: 100%;
-			}
 			.content {
 				position: absolute;
 				top: 0;
 				bottom: 0;
-				left: 150px;
-				right: 150px;
+				padding: 0 150px;
 
 				.navigation {
 					text-transform: uppercase;
-					padding: 0 70px;
-					display: flex;
+					margin: 0 70px;
+					@include flex-box();
 					//flex-direction: row;
 					flex-flow: row wrap;
 					height: 80px;
+					border-bottom: 1px solid rgb(107,132,132);
 
 					.logo-block {
-						display: flex;
+						@include flex-box();
 
 						.logo {
 							align-self: center;
 							font-family: $proxima-nova-bold;
 							color: $white;
 							padding-right: 30px;
-							border-right: 2px solid rgba(124, 138, 138, 0.6);
+							border-right: 1px solid rgb(107,132,132);
 							font-size: 26px;
 							font-weight: 700;
 							line-height: 0.8;
@@ -86,24 +93,37 @@ html, body {
 					}
 					.nav-block {
 						margin-left: auto;
-						display: flex;
+						@include flex-box();
 						flex-flow: row wrap;
 						font-size: 12px;
-						color: $white;
+						color: $nav-button-color;
 						font-weight: 300;
 
 						ul {
 							list-style: none;
 							margin: 0;
 							padding: 0;
-							display: flex;
+							@include flex-box();
 							
 							li {
 								display: inline-block;
 								align-self: center;
 								padding: 0 15px;
 								&.active {
-									font-weight: 700;
+									color: $white;
+								}
+								a{
+									text-decoration: none;
+									color: $nav-button-color;
+									&:hover {
+										color: $white;
+									}
+								}
+								&.icon {
+									display: none;
+									a {
+										font-size:15px;
+									}
 								}
 							}
 						}
@@ -127,7 +147,7 @@ html, body {
 					}
 				}
 				.title-block {
-					display: flex;
+					@include flex-box();
 					height: 520px;
 					padding: 0 170px;
 
@@ -168,7 +188,7 @@ html, body {
 			font-family: $roboto;
 			.first-row {
 				padding: 0 180px;
-				display: flex;
+				@include flex-box();
 				flex-direction: column;
 				.title {
 					font-family: $roboto-light;
@@ -190,7 +210,7 @@ html, body {
 			.second-row {
 				padding-top: 80px;
 				margin: 0 70px;
-				display: flex;
+				@include flex-box();
 				justify-content: space-between;
 				.item {
 					width: 30%;
@@ -217,7 +237,7 @@ html, body {
 			background-color: rgb(238,241,236);
 			.first-row {
 				padding: 0 180px;
-				display: flex;
+				@include flex-box();
 				flex-direction: column;
 				.title {
 					font-family: $roboto-light;
@@ -239,7 +259,7 @@ html, body {
 			.second-row {
 				padding-top: 80px;
 				margin: 0 70px;
-				display: flex;
+				@include flex-box();
 				justify-content: space-between;
 				text-align: left;
 				.item {
@@ -270,17 +290,17 @@ html, body {
 			color: $white;
 			overflow: hidden;
 			position: relative;
-			img {
-				width: 100%;
-			}
+			background-image: url(../images/wapik-action.png);	
+			background-size: cover;
 			.wapik-content {
 				position: absolute;
 				top: 0;
 				bottom: 0;
-				left: 140px;
-				right: 140px;
+				padding: 0 140px;
+				width: 100%;
+				box-sizing: border-box;
 				flex-flow: row wrap;
-				display: flex;
+				@include flex-box();
 				.description {
 					align-self: center;
 					.title {
@@ -313,12 +333,12 @@ html, body {
 		}
 	}
 	footer {
-		padding: 100px 140px 10px 140px;
+		padding: 100px 140px 0 140px;
 		text-align: left;
 		font-family: $roboto;
 		.first-row {
 			padding-bottom: 50px;
-			display: flex;
+			@include flex-box();
 			justify-content: space-between;
 			.item {
 				width: 25%;
@@ -334,7 +354,7 @@ html, body {
 					&.big {
 						font-family: $proxima-nova-bold;
 						font-size: 26px;
-				    line-height: 15px;
+						line-height: 15px;
 					}
 				}
 				ul {
@@ -344,9 +364,10 @@ html, body {
 					li {
 						line-height: 1.2;
 						padding-top: 15px;
+						display: table;
 						span {
 							color: rgb(131,167,165);
-							display: inline-block;
+							display: table-cell;
 
 							&.bold {
 								color: rgb(15,95,92);
@@ -354,6 +375,9 @@ html, body {
 
 							&:first-of-type {
 								padding-right: 10px;
+							}
+							&:nth-child(2) {
+								margin-left: 20px;
 							}
 						}
 						a {
@@ -400,7 +424,7 @@ html, body {
 		.second-row {
 			border-top: 1px solid rgb(238,241,236);
 			padding: 30px 0;
-			display: flex;
+			@include flex-box();
 			flex-flow: row wrap;
 			.left-side {
 				align-self: center;
@@ -414,7 +438,7 @@ html, body {
 					list-style: none;
 					margin: 0;
 					padding: 0;
-					display: flex;
+					@include flex-box();
 					li {
 						align-self: center;
 						span {
@@ -448,9 +472,241 @@ html, body {
 	header {
 		.hero-container {
 			.content {
-				left: 0;
-				right: 0;
+				padding: 0;
+				.navigation {
+					margin: 0 40px;
+				}
 			}
+		}
+	}
+	.main-content {
+		.about-us, .our-team {
+			padding: 70px 0 100px 0;
+			.first-row {
+				padding: 0 110px;
+			}
+			.second-row {
+				margin: 0 40px;
+			}
+		}
+		.wapik-action {
+			.wapik-content {
+				padding: 0 40px;
+			}
+		}
+	}
+	footer {
+		padding: 100px 40px 0 40px;
+	}
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+	header {
+		.hero-container {
+			.content {
+				padding: 0;
+				.navigation {
+					margin: 0 40px;
+					.nav-block ul li {
+							display: inline-block;
+							align-self: center;
+							padding: 0 10px;
+					}
+					.logo-block {
+						.logo {
+							padding-right: 10px;
+						}
+						.telephone {
+							padding-left: 10px;
+						}
+					}
+				}
+				.title-block .container .title {
+					font-size: 36px;
+				}
+			}
+		}
+	}
+	.main-content {
+		.about-us, .our-team {
+			padding: 70px 0 100px 0;
+			.first-row {
+				padding: 0 110px;
+			}
+			.second-row {
+				margin: 0 40px;
+			}
+		}
+		.wapik-action {
+			.wapik-content {
+				padding: 0 40px;
+				flex-flow: column wrap;
+				text-align: center;
+				@include flex-box();
+				.description, .wapik-download {
+					margin: auto;
+				}
+			}
+		}
+	}
+	footer {
+		padding: 100px 40px 0 40px;
+		.first-row {
+			flex-flow: row wrap;
+			.item {
+				width: 50%;
+				box-sizing: border-box;
+				&:nth-child(n+3) {
+					padding-top: 80px;
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	header {
+		.hero-container {
+			.content {
+				padding: 0;
+				.navigation {
+					margin: 0 40px;
+					flex-flow: column wrap;
+					height: auto;
+					.nav-block {
+						@include flex-box();
+						flex-flow: row-reverse wrap;
+						padding: 10px 0;
+						margin-left: 0;
+						ul {
+							margin-left: auto;
+							-webkit-transition:200ms linear;
+							-moz-transition:200ms linear;
+							-o-transition:200ms linear;
+							transition:200ms linear;
+							height: 20px;
+							&.responsive {
+								position: relative;
+								@include flex-box();
+								flex-flow: column wrap;
+								overflow: hidden;
+								height: 80px;
+								li {
+									float: none;
+									display: inline !important;
+									width: 100%;
+									&.icon {
+										position: absolute;
+										right: 0;
+										top: 0;
+										width: auto;
+									}
+									a {
+										display: block;
+										text-align: left;
+										height: 20px;
+										line-height: 20px;
+									}
+								}
+							}
+							li {
+								display: inline-block;
+								align-self: center;
+								padding: 0 10px;
+								&:not(:first-child) {
+									display: none;
+								}
+								&.icon {
+									float: right;
+									display: inline-block;
+								}
+							}
+						}
+						button.get-started {
+							margin: 0;
+						}
+					}
+					.logo-block {
+						@include flex-box();
+						flex-flow: row wrap;
+						padding: 10px 0;
+						.logo {
+							border: none;
+							padding-right: 10px;
+						}
+						.telephone {
+							margin-left: auto;
+							padding-left: 10px;
+						}
+					}
+				}
+				.title-block {
+					padding: 0 40px;
+					.container .title {
+						font-size: 36px;
+					}
+				}
+			}
+		}
+	}
+	.main-content {
+		.about-us, .our-team {
+			padding: 70px 0 100px 0;
+			.first-row {
+				padding: 0 40px;
+				.title {
+					font-size: 28px;
+				}
+			}
+			.second-row {
+				margin: 0 40px;
+				@include flex-box();
+				flex-flow: row wrap;
+				.item {
+					width: 100%;
+					//border-bottom: 1px solid #6fb048;
+					padding-bottom: 20px;
+					//margin-bottom: 10px; 
+				}
+			}
+		}
+		.wapik-action {
+			.wapik-content {
+				padding: 0 40px;
+				flex-flow: column wrap;
+				text-align: center;
+				@include flex-box();
+				.description, .wapik-download {
+					margin: auto;
+				}
+				.description .title {
+					font-size: 22px;
+				}
+				.wapik-download {
+					height: auto;
+				}
+			}
+		}
+	}
+	footer {
+		padding: 100px 40px 0 40px;
+		.first-row {
+			flex-flow: row wrap;
+			.item {
+				width: 100%;
+				box-sizing: border-box;
+				padding-top: 80px;
+				&:first-of-type {
+					padding-top: 0;
+				}
+			}
+		}
+		.second-row .right-side {
+			margin: auto;
+			padding-top: 10px;
+		}
+		.second-row .left-side {
+			margin: auto;
 		}
 	}
 }

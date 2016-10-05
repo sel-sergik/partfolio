@@ -8,7 +8,6 @@
 <body>
 	<header>
 		<div class="hero-container">
-			<img class="hero-image" src="images/hero.jpg" alt="hero">
 			<div class="content">
 				<div class="navigation">
 					<div class="logo-block">
@@ -19,11 +18,14 @@
 						</span>
 					</div>
 					<div class="nav-block">
-						<ul>
-							<li>Home</li>
-							<li class="active">About us</li>
-							<li>Pricing</li>
-							<li>Contact us</li>
+						<ul id="topNav" class="topnav">
+							<li><a href="#home">Home</a></li>
+							<li><a href="#about-us">About us</a></li>
+							<li><a href="#pricing">Pricing</a></li>
+							<li><a href="#contact-us">Contact us</a></li>
+							<li class="icon">
+								<a href="javascript:void(0);" onclick="myFunction()">☰</a>
+							</li>
 						</ul>
 						<button class="get-started">Get started</button>
 					</div>
@@ -91,7 +93,6 @@
 			</div>
 		</div>
 		<div class="wapik-action">
-			<img src="images/wapik-action.png" alt="wapic-image" class="wapic-image">
 			<div class="wapik-content">
 				<div class="description">
 					<div class="title">Do You Like Wapik? Download it Now</div>
@@ -142,7 +143,7 @@
 			<div class="right-side">
 				<ul>
 					<li><a href="#twitter"><span class="twitter"></span></a></li>
-					<li><a href="#instagram"><span class="facebook"></span></a></li>
+					<li><a href="#facebook"><span class="facebook"></span></a></li>
 					<li><a href="#instagram"><span class="instagram"></span></a></li>
 					<li><a href="#dribbble"><span class="dribbble"></span></a></li>
 					<li><a href="#github"><span class="github"></span></a></li>
@@ -150,5 +151,15 @@
 			</div>
 		</div>
 	</footer>
+	<script>
+		function myFunction() {
+				var x = document.getElementById("topNav");
+				if (x.className === "topnav") {
+						x.className += " responsive";
+				} else {
+						x.className = "topnav";
+				}
+		}
+	</script>
 </body>
 </html>
