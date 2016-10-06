@@ -17,7 +17,7 @@ gulp.task('autoprefixer', function () {
             browsers: ['last 3 versions'],
             cascade: false
         }))
-        .pipe(gulp.dest('css'))
+        .pipe(gulp.dest('dest'))
 });
 
 gulp.task('default', function(){
