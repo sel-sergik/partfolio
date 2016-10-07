@@ -40,7 +40,12 @@ gulp.task('autoprefixer', ['sass'], function () {
             browsers: ['last 3 versions'],
             cascade: false
         }))
-        .pipe(gulp.dest('./dist'))
+        .pipe(gulp.dest('./css'))
+});
+
+gulp.task('cssdeploy', ['autoprefixer'], function () {
+	return gulp.src('./css/**/*.css')
+		.pipe(gulp.dest('./dist/css'));
 });
 
 gulp.task('default', function(){
@@ -50,14 +55,7 @@ gulp.task('default', function(){
 	gulp.watch('./sass/**/*.scss', ['sass','autoprefixer']);
 });
 
-gulp.task('deploy', function () {
-	gulp.run('clean');
-	gulp.run('html');
-	gulp.run('fonts');
-	gulp.run('images');
-	gulp.run('sass');
-	gulp.run('autoprefixer');
-
+gulp.task('deploy', ['clean', 'html', 'fonts', 'images', 'sass', 'autoprefixer', 'cssdeploy'], function () {
   return gulp.src("./dist/**/*")
     .pipe(ghPages())
 });
