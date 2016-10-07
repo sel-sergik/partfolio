@@ -3,33 +3,61 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
-var deploy = require('gulp-gh-pages');
- 
-gulp.task('sass', function () {
-	gulp.src('./sass/**/*.scss')
-		.pipe(sass().on('error', sass.logError))
-		.pipe(gulp.dest('./css'));
-	gulp.run('autoprefixer');
+var ghPages = require('gulp-gh-pages');
+var imagemin = require('gulp-imagemin');
+var del = require('del');
+
+gulp.task('clean', function() {
+  return del(['dist']);
 });
 
-gulp.task('autoprefixer', function () {
-	gulp.src('./css/style.css')
+gulp.task('html', ['clean'], function () {
+	return gulp.src('./*.html')
+		.pipe(gulp.dest('./dist'));
+});
+
+gulp.task('fonts', ['clean'], function () {
+	return gulp.src('./fonts/**/*')
+		.pipe(gulp.dest('./dist/fonts'));
+});
+
+gulp.task('images', ['clean'], function() {
+  return gulp.src('./images/**/*')
+    // Pass in options to the task 
+    .pipe(imagemin({optimizationLevel: 5}))
+    .pipe(gulp.dest('./dist/images'));
+});
+
+gulp.task('sass', function () {
+	return gulp.src('./sass/**/*.scss')
+		.pipe(sass().on('error', sass.logError))
+		.pipe(gulp.dest('./css'));
+});
+
+gulp.task('autoprefixer', ['sass'], function () {
+	return gulp.src('./css/**/*.css')
         .pipe(autoprefixer({
             browsers: ['last 3 versions'],
             cascade: false
         }))
-        .pipe(gulp.dest('dist'))
+        .pipe(gulp.dest('./dist'))
 });
 
 gulp.task('default', function(){
 	gulp.run('sass');
+	gulp.run('autoprefixer');
 
-	gulp.watch('./sass/**/*.scss', ['sass']);
+	gulp.watch('./sass/**/*.scss', ['sass','autoprefixer']);
 });
 
 gulp.task('deploy', function () {
-	gulp.run('default');
+	gulp.run('clean');
+	gulp.run('html');
+	gulp.run('fonts');
+	gulp.run('images');
+	gulp.run('sass');
+	gulp.run('autoprefixer');
 
   return gulp.src("./dist/**/*")
-    .pipe(deploy())
+    .pipe(ghPages())
 });
