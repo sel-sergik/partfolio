@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Partfolio for mentoring program</title>
+	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
@@ -24,7 +25,7 @@
 							<li><a href="#pricing">Pricing</a></li>
 							<li><a href="#contact-us">Contact us</a></li>
 							<li class="icon">
-								<a href="javascript:void(0);" onclick="myFunction()">☰</a>
+								<a href="javascript:void(0);" onclick="toogleNavigation()">☰</a>
 							</li>
 						</ul>
 						<button class="get-started">Get started</button>
@@ -76,17 +77,17 @@
 			</div>
 			<div class="second-row">
 				<div class="item">
-					<div class="avatar"><img src="images/person1.png"></div>
+					<div class="avatar"><img src="images/person1.svg" onerror="this.onerror=null; this.src='images/person1.png'"></div>
 					<div class="name">Joyce Hudson</div>
 					<div class="position">Founder & Designer</div>
 				</div>
 				<div class="item">
-					<div class="avatar"><img src="images/person2.png"></div>
+					<div class="avatar"><img src="images/person2.svg" onerror="this.onerror=null; this.src='images/person2.png'"></div>
 					<div class="name">Angela Campbell</div>
 					<div class="position">Project Manager</div>
 				</div>
 				<div class="item">
-					<div class="avatar"><img src="images/person3.png"></div>
+					<div class="avatar"><img src="images/person3.svg" onerror="this.onerror=null; this.src='images/person3.png'"></div>
 					<div class="name">James Walker</div>
 					<div class="position">Developer</div>
 				</div>
@@ -152,14 +153,37 @@
 		</div>
 	</footer>
 	<script>
-		function myFunction() {
-				var x = document.getElementById("topNav");
-				if (x.className === "topnav") {
-						x.className += " responsive";
-				} else {
-						x.className = "topnav";
-				}
+		function toogleNavigation() {
+			var navigation = document.getElementById("topNav");
+			if (!hasClass(navigation, "expanded")) {
+					addClass(navigation, "expanded");
+			} else {
+					removeClass(navigation, "expanded");
+			}
 		}
+
+		function hasClass(el, className) {
+			if (el.classList)
+				return el.classList.contains(className)
+			else
+				return !!el.className.match(new RegExp('(\\s|^)' + className + '(\\s|$)'))
+		}
+
+		function addClass(el, className) {
+			if (el.classList)
+				el.classList.add(className)
+			else if (!hasClass(el, className)) el.className += " " + className
+		}
+
+		function removeClass(el, className) {
+			if (el.classList)
+				el.classList.remove(className)
+			else if (hasClass(el, className)) {
+				var reg = new RegExp('(\\s|^)' + className + '(\\s|$)')
+				el.className=el.className.replace(reg, ' ')
+			}
+		}
+
 	</script>
 </body>
 </html>

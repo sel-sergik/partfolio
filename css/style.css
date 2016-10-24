@@ -1,26 +1,44 @@
 @font-face {
-  font-family: "Montserrat";
-  src: url(../fonts/montserrat/Montserrat-Regular.ttf); }
+  font-family: 'Montserrat';
+  src: url("../fonts/montserrat/Montserrat-Regular.eot");
+  /* IE9 Compat Modes */
+  src: url("../fonts/montserrat/Montserrat-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/montserrat/Montserrat-Regular.woff") format("woff"), url("../fonts/montserrat/Montserrat-Regular.ttf") format("truetype"), url("../fonts/montserrat/Montserrat-Regular.svg#svgFontName") format("svg");
+  /* Legacy iOS */ }
 
 @font-face {
-  font-family: "Proxima Nova";
-  src: url(../fonts/Proxima_Nova/Proxima-Nova-Regular.otf); }
+  font-family: 'Proxima Nova';
+  src: url("../fonts/Proxima_Nova/ProximaNova-Regular.eot");
+  /* IE9 Compat Modes */
+  src: url("../fonts/Proxima_Nova/ProximaNova-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/Proxima_Nova/ProximaNova-Regular.woff") format("woff"), url("../fonts/Proxima_Nova/ProximaNova-Regular.ttf") format("truetype"), url("../fonts/Proxima_Nova/ProximaNova-Regular.svg#svgFontName") format("svg");
+  /* Legacy iOS */ }
 
 @font-face {
-  font-family: "Proxima Nova Bold";
-  src: url(../fonts/Proxima_Nova/Proxima-Nova-Bold.otf); }
+  font-family: 'Proxima Nova Bold';
+  src: url("../fonts/Proxima_Nova/ProximaNova-Bold.eot");
+  /* IE9 Compat Modes */
+  src: url("../fonts/Proxima_Nova/ProximaNova-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/Proxima_Nova/ProximaNova-Bold.woff") format("woff"), url("../fonts/Proxima_Nova/ProximaNova-Bold.ttf") format("truetype"), url("../fonts/Proxima_Nova/ProximaNova-Bold.svg#svgFontName") format("svg");
+  /* Legacy iOS */ }
 
 @font-face {
-  font-family: "Roboto";
-  src: url(../fonts/roboto/Roboto-Regular.ttf); }
+  font-family: 'Roboto';
+  src: url("../fonts/roboto/Roboto-Regular.eot");
+  /* IE9 Compat Modes */
+  src: url("../fonts/roboto/Roboto-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/roboto/Roboto-Regular.woff") format("woff"), url("../fonts/roboto/Roboto-Regular.ttf") format("truetype"), url("../fonts/roboto/Roboto-Regular.svg#svgFontName") format("svg");
+  /* Legacy iOS */ }
 
 @font-face {
-  font-family: "Roboto Light";
-  src: url(../fonts/roboto/Roboto-Light.ttf); }
+  font-family: 'Roboto Light';
+  src: url("../fonts/roboto/Roboto-Light.eot");
+  /* IE9 Compat Modes */
+  src: url("../fonts/roboto/Roboto-Light.eot?#iefix") format("embedded-opentype"), url("../fonts/roboto/Roboto-Light.woff") format("woff"), url("../fonts/roboto/Roboto-Light.ttf") format("truetype"), url("../fonts/roboto/Roboto-Light.svg#svgFontName") format("svg");
+  /* Legacy iOS */ }
 
 @font-face {
-  font-family: "Roboto Medium";
-  src: url(../fonts/roboto/Roboto-Medium.ttf); }
+  font-family: 'Roboto Medium';
+  src: url("../fonts/roboto/Roboto-Medium.eot");
+  /* IE9 Compat Modes */
+  src: url("../fonts/roboto/Roboto-Medium.eot?#iefix") format("embedded-opentype"), url("../fonts/roboto/Roboto-Medium.woff") format("woff"), url("../fonts/roboto/Roboto-Medium.ttf") format("truetype"), url("../fonts/roboto/Roboto-Medium.svg#svgFontName") format("svg");
+  /* Legacy iOS */ }
 
 html, body {
   height: 100%;
@@ -238,7 +256,20 @@ html, body {
       .main-content .our-team .second-row .item {
         width: 30%; }
         .main-content .our-team .second-row .item .avatar {
+          position: relative;
           font-size: 0px; }
+          .main-content .our-team .second-row .item .avatar:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0; }
+          .main-content .our-team .second-row .item .avatar:hover:before {
+            background: url(../images/hover-effect.png) no-repeat;
+            background-size: 60% 60%;
+            background-position: center center;
+            background-color: rgba(0, 0, 0, 0.3); }
           .main-content .our-team .second-row .item .avatar img {
             width: 100%; }
         .main-content .our-team .second-row .item .name {
@@ -488,28 +519,6 @@ html, body {
           margin-left: auto;
           transition: 200ms linear;
           height: 20px; }
-          header .hero-container .content .navigation .nav-block ul.responsive {
-            position: relative;
-            display: -ms-flexbox;
-            display: flex;
-            -ms-flex-flow: column wrap;
-            flex-flow: column wrap;
-            overflow: hidden;
-            height: 80px; }
-            header .hero-container .content .navigation .nav-block ul.responsive li {
-              float: none;
-              display: inline !important;
-              width: 100%; }
-              header .hero-container .content .navigation .nav-block ul.responsive li.icon {
-                position: absolute;
-                right: 0;
-                top: 0;
-                width: auto; }
-              header .hero-container .content .navigation .nav-block ul.responsive li a {
-                display: block;
-                text-align: left;
-                height: 20px;
-                line-height: 20px; }
           header .hero-container .content .navigation .nav-block ul li {
             display: inline-block;
             -ms-flex-item-align: center;
@@ -521,6 +530,28 @@ html, body {
             header .hero-container .content .navigation .nav-block ul li.icon {
               float: right;
               display: inline-block; }
+          header .hero-container .content .navigation .nav-block ul.expanded {
+            position: relative;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-flow: column wrap;
+            flex-flow: column wrap;
+            overflow: hidden;
+            height: 80px; }
+            header .hero-container .content .navigation .nav-block ul.expanded li {
+              float: none;
+              display: inline;
+              width: 100%; }
+              header .hero-container .content .navigation .nav-block ul.expanded li.icon {
+                position: absolute;
+                right: 0;
+                top: 0;
+                width: auto; }
+              header .hero-container .content .navigation .nav-block ul.expanded li a {
+                display: block;
+                text-align: left;
+                height: 20px;
+                line-height: 20px; }
         header .hero-container .content .navigation .nav-block button.get-started {
           margin: 0; }
       header .hero-container .content .navigation .logo-block {
