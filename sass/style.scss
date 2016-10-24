@@ -259,7 +259,22 @@ html, body {
 				.item {
 					width: 30%;
 					.avatar {
+						position: relative;
 						font-size: 0px;
+						&:before {
+							content: '';
+							position: absolute;
+							top: 0;
+							left: 0;
+							bottom: 0;
+							right: 0;
+						}
+						&:hover:before {
+							background: url(../images/hover-effect.png) no-repeat;
+							background-size: 60% 60%;
+							background-position: center center;
+							background-color: rgba(0,0,0,0.3);
+						}
 						img {
 							width: 100%;
 						}
@@ -579,7 +594,19 @@ html, body {
 							-o-transition:200ms linear;
 							transition:200ms linear;
 							height: 20px;
-							&.responsive {
+							li {
+								display: inline-block;
+								align-self: center;
+								padding: 0 10px;
+								&:not(:first-child) {
+									display: none;
+								}
+								&.icon {
+									float: right;
+									display: inline-block;
+								}
+							}
+							&.expanded {
 								position: relative;
 								display: flex;
 								flex-flow: column wrap;
@@ -587,7 +614,7 @@ html, body {
 								height: 80px;
 								li {
 									float: none;
-									display: inline !important;
+									display: inline;
 									width: 100%;
 									&.icon {
 										position: absolute;
@@ -601,18 +628,6 @@ html, body {
 										height: 20px;
 										line-height: 20px;
 									}
-								}
-							}
-							li {
-								display: inline-block;
-								align-self: center;
-								padding: 0 10px;
-								&:not(:first-child) {
-									display: none;
-								}
-								&.icon {
-									float: right;
-									display: inline-block;
 								}
 							}
 						}
