@@ -1,0 +1,254 @@
+@media only screen {
+	.main-content {
+		.about-us {
+			padding: 70px 70px 100px 70px;
+			text-align: center;
+			font-family: $roboto;
+			.first-row {
+				padding: 0 180px;
+				display: flex;
+				flex-direction: column;
+				.title {
+					font-family: $roboto-light;
+					font-size: 36px;
+					color: rgb(15,95,92);
+				}
+				.bottom-line {
+					width: 70px;
+					border-bottom: 1px solid rgb(111,176,72);
+					margin: auto;
+					margin-top: 15px; 
+				}
+				.description {
+					font-size: 17px;
+					color: rgb(131,167,165);
+					margin-top: 40px;
+				}
+			}
+			.second-row {
+				padding-top: 80px;
+				margin: 0 70px;
+				display: flex;
+				justify-content: space-between;
+				.item {
+					width: 30%;
+					.icon {
+						height: 64px;
+					}
+					.title {
+						color: rgb(15,95,92);
+						font-size: 20px;
+						padding-top: 20px;
+					}
+					.description {
+						color: rgb(141,174,172);
+						font-size: 17px;
+						padding-top: 20px;
+					}
+				}
+			}
+		}
+		.our-team {
+			padding: 70px 100px 100px 100px;
+			text-align: center;
+			font-family: $roboto;
+			background-color: rgb(238,241,236);
+			.first-row {
+				padding: 0 180px;
+				display: flex;
+				flex-direction: column;
+				.title {
+					font-family: $roboto-light;
+					font-size: 36px;
+					color: rgb(15,95,92);
+				}
+				.bottom-line {
+					width: 70px;
+					border-bottom: 1px solid rgb(111,176,72);
+					margin: auto;
+					margin-top: 15px; 
+				}
+				.description {
+					font-size: 17px;
+					color: rgb(131,167,165);
+					margin-top: 40px;
+				}
+			}
+			.second-row {
+				padding-top: 80px;
+				margin: 0 70px;
+				display: flex;
+				justify-content: space-between;
+				text-align: left;
+				.item {
+					width: 30%;
+					.avatar {
+						position: relative;
+						font-size: 0px;
+						&:before {
+							content: '';
+							position: absolute;
+							top: 0;
+							left: 0;
+							bottom: 0;
+							right: 0;
+						}
+						&:hover:before {
+							background: url(../images/hover-effect.png) no-repeat;
+							background-size: 60% 60%;
+							background-position: center center;
+							background-color: rgba(0,0,0,0.3);
+						}
+						img {
+							width: 100%;
+						}
+					}
+					.name {
+						color: rgb(15,95,92);
+						font-family: $roboto-medium;
+						font-size: 16px;
+						padding-top: 10px;
+					}
+					.position {
+						color: rgb(141,174,172);
+						font-size: 15px;
+						padding-top: 3px;
+					}
+				}
+			}
+		}
+		.wapik-action {
+			font-family: $roboto;
+			height: 200px;
+			color: $white;
+			overflow: hidden;
+			position: relative;
+			background-image: url(../images/wapik-action.png);	
+			background-size: cover;
+			.wapik-content {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				padding: 0 140px;
+				width: 100%;
+				box-sizing: border-box;
+				flex-flow: row wrap;
+				display: flex;
+				.description {
+					align-self: center;
+					.title {
+						font-family: $roboto-light;
+						font-size: 26px;
+					}
+					.sub-title {
+						font-size: 15px;
+						padding-top: 3px;
+					}
+				}
+				.wapik-download {
+					align-self: center;
+					margin-left: auto;
+					padding: 10px 20px;
+					text-transform: uppercase;
+					background-color: rgb(73,115,47);
+					font-family: $montserrat;
+					font-size: 14px;
+					height: 40px;
+					color: $white;
+					border: 0;
+					border-radius: 3px;
+					&:hover {
+						cursor: pointer;
+						background-color: rgba(73,115,47, 0.7);
+					}
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+	.main-content {
+		.about-us, .our-team {
+			padding: 70px 0 100px 0;
+			.first-row {
+				padding: 0 110px;
+			}
+			.second-row {
+				margin: 0 40px;
+			}
+		}
+		.wapik-action {
+			.wapik-content {
+				padding: 0 40px;
+			}
+		}
+	}
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+	.main-content {
+		.about-us, .our-team {
+			padding: 70px 0 100px 0;
+			.first-row {
+				padding: 0 110px;
+			}
+			.second-row {
+				margin: 0 40px;
+			}
+		}
+		.wapik-action {
+			.wapik-content {
+				padding: 0 40px;
+				flex-flow: column wrap;
+				text-align: center;
+				display: flex;
+				.description, .wapik-download {
+					margin: auto;
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	.main-content {
+		.about-us, .our-team {
+			padding: 70px 0 100px 0;
+			.first-row {
+				padding: 0 40px;
+				.title {
+					font-size: 28px;
+				}
+			}
+			.second-row {
+				margin: 0 40px;
+				display: flex;
+				flex-flow: row wrap;
+				.item {
+					width: 100%;
+					//border-bottom: 1px solid #6fb048;
+					padding-bottom: 20px;
+					//margin-bottom: 10px; 
+				}
+			}
+		}
+		.wapik-action {
+			.wapik-content {
+				padding: 0 40px;
+				flex-flow: column wrap;
+				text-align: center;
+				display: flex;
+				.description, .wapik-download {
+					margin: auto;
+				}
+				.description .title {
+					font-size: 22px;
+				}
+				.wapik-download {
+					height: auto;
+				}
+			}
+		}
+	}
+}
