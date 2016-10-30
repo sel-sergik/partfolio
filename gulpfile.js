@@ -13,8 +13,8 @@ gulp.task('clean', function() {
 });
 
 gulp.task('import', function () {
-	gulp.src('./index.html')
-			.pipe(gulpImport('./components/'))
+	gulp.src('./components/index.html')
+			.pipe(htmlImport('./components/'))
 			.pipe(gulp.dest('')); 
 })
 
